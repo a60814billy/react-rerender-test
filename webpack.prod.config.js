@@ -1,35 +1,26 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 
 module.exports = {
-  mode: 'development',
-  devtool: 'inline-source-map',
+  mode: 'production',
   entry: {
     app: {
-      import: ['webpack-hot-middleware/client', './public/index.tsx'],
+      import: ['./public/index.tsx'],
       filename: 'assets/[name].[contenthash].js',
-    },
+    }
   },
   output: {
-    path: path.resolve(__dirname, './docs'),
+    path: path.resolve(__dirname, './dist'),
     clean: true,
     publicPath: './',
-    library: {
-      type: 'module',
-    },
+    chunkFilename: "assets/[name].bundle.js",
+    filename: "assets/[name].bundle.js"
   },
   resolve: {
     extensions: ['.tsx', '.js', '.css', '.ts'],
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
-    new ReactRefreshWebpackPlugin({
-      overlay: {
-        sockIntegration: 'whm'
-      }
-    }),
     new HtmlWebpackPlugin({
       template: './public/index.html',
     }),
@@ -48,7 +39,6 @@ module.exports = {
               '@babel/preset-react',
             ],
             plugins: [
-              require.resolve('react-refresh/babel'),
             ],
           },
         },
@@ -63,11 +53,10 @@ module.exports = {
       }
     ],
   },
-  devServer: {
-    hot: true,
-    writeToDisk: true
-  },
-  experiments: {
-    outputModule: true,
-  },
+  optimization: {
+    runtimeChunk: true,
+    splitChunks: {
+      chunks: "all"
+    }
+  }
 };
