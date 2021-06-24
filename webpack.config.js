@@ -7,18 +7,13 @@ module.exports = {
   mode: 'development',
   devtool: 'inline-source-map',
   entry: {
-    app: {
-      import: ['webpack-hot-middleware/client', './public/index.tsx'],
-      filename: 'assets/[name].[contenthash].js',
-    },
+    app: ['webpack-hot-middleware/client', './public/index.tsx']
   },
   output: {
-    path: path.resolve(__dirname, './docs'),
+    path: path.resolve(__dirname, './dist'),
     clean: true,
-    publicPath: './',
-    library: {
-      type: 'module',
-    },
+    filename: "assets/[name].[contenthash].js",
+    chunkFilename: "assets/[name].[contenthash].bundle.js",
   },
   resolve: {
     extensions: ['.tsx', '.js', '.css', '.ts'],
@@ -68,6 +63,5 @@ module.exports = {
     writeToDisk: true
   },
   experiments: {
-    outputModule: true,
   },
 };

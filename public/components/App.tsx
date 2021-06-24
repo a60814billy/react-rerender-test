@@ -109,7 +109,7 @@ class App extends React.PureComponent<AppProps, AppState> {
             <div className="flex flex-row">
               <h1 className="flex-grow">Component render log</h1>
               <span
-                className="hover:bg-gray-200 rounded-full p-1"
+                className="hover:bg-gray-200 rounded-full p-1 cursor-pointer"
                 onClick={this.clearLogEle}
               >
                 <svg

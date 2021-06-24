@@ -1,6 +1,8 @@
 import React from 'react';
 import Button from '../Button/Button';
 import { getLogger } from '../logger';
+import CodeIcon from '../CodeIcon/CodeIcon';
+import SourceCode from '../SourceCode/SourceCode';
 
 type ClassAppProps = Record<string, never>;
 
@@ -36,6 +38,7 @@ class ClassApp extends React.PureComponent<ClassAppProps, ClassAppState> {
           text="Add"
           onClick={this.dispatchCounter}
         />
+        <SourceCode link="https://github.com/a60814billy/react-rerender-test/blob/master/public/components/ClassApp/ClassApp.tsx" />
       </>
     );
   }
