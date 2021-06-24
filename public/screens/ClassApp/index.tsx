@@ -37,7 +37,7 @@ class Index extends React.PureComponent<ClassAppProps, ClassAppState> {
         />
         <p className="mt-6 text-right">
           <SourceCode
-            link="https://github.com/a60814billy/react-rerender-test/blob/master/public/components/ClassApp/ClassApp.tsx"
+            link="https://github.com/a60814billy/react-rerender-test/blob/master/public/screens/ClassApp/index.tsx"
           />
         </p>
       </>

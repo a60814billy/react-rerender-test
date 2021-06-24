@@ -20,7 +20,7 @@ const Index: FC = () => {
       />
       <p className="mt-6 text-right">
         <SourceCode
-          link="https://github.com/a60814billy/react-rerender-test/blob/master/public/components/FunctionalApp/FunctionalApp.tsx"
+          link="https://github.com/a60814billy/react-rerender-test/blob/master/public/screens/FunctionalApp/index.tsx"
         />
       </p>
     </>
