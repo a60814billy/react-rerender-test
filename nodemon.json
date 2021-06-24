@@ -1,0 +1,14 @@
+{
+  "restartable": "rs",
+  "watch": [
+    "./src",
+    "./webpack.config.js"
+  ],
+  "ignore": [
+    "node_modules"
+  ],
+  "execMap": {
+    "ts": "node -r ts-node/register"
+  },
+  "ext": "ts,js,json"
+}

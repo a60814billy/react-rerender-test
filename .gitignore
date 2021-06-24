@@ -1,0 +1,4 @@
+/.webpack_cache
+/node_modules
+/docs
+.idea
