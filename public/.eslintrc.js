@@ -15,7 +15,9 @@ module.exports = {
     project: path.resolve(__dirname, 'tsconfig.json')
   },
   rules: {
-    "import/no-extraneous-dependencies": "off"
+    "import/no-extraneous-dependencies": "off",
+    "import/prefer-default-export": "off",
+    "react/state-in-constructor": "off"
   },
   ignorePatterns: [".eslintrc.js"],
 }

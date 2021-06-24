@@ -1,0 +1,19 @@
+
+.sourceCode {
+    @apply mt-6 text-right block hover:text-gray-600;
+    .title {
+        @apply text-2xl;
+
+        .ok {
+            @apply bg-blue-900;
+        }
+    }
+
+}
+
+.sourceCode2 {
+    @apply hover:text-blue-600;
+    .title {
+        @apply text-6xl;
+    }
+}

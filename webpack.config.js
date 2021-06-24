@@ -43,18 +43,26 @@ module.exports = {
               '@babel/preset-react',
             ],
             plugins: [
-              require.resolve('react-refresh/babel'),
+              require.resolve("babel-plugin-react-scoped-css"),
+              require.resolve('react-refresh/babel')
             ],
           },
         },
       },
       {
-        test: /\.s[ac]ss$/i,
-        use: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader']
-      },
-      {
-        test: /\.css$/i,
-        use: ['style-loader', 'css-loader', 'postcss-loader']
+        test: /\.(sc|sa|c)ss$/i,
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              sourceMap:true
+            }
+          },
+          'scoped-css-loader',
+          'postcss-loader',
+          'sass-loader'
+        ]
       }
     ],
   },
@@ -62,6 +70,5 @@ module.exports = {
     hot: true,
     writeToDisk: true
   },
-  experiments: {
-  },
+  experiments: {},
 };

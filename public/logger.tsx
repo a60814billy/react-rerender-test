@@ -6,7 +6,7 @@ class Logger {
   private ele: React.RefObject<HTMLDivElement>;
 
   constructor(app: App) {
-    this.ele = app.logEle;
+    this.ele = app.loggerOutputElement;
   }
 
   log(str: string): void {
@@ -23,6 +23,6 @@ export function getLogger(): Logger {
   return instance as Logger;
 }
 
-export function createInstance(app: App): void {
+export function createLoggerInstance(app: App): void {
   instance = new Logger(app);
 }

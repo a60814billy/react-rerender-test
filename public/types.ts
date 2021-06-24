@@ -11,6 +11,6 @@ export interface AppState {
   selectedRenderType: RenderType
 }
 
-export declare class App extends React.Component<AppProps, AppState> {
-  public readonly logEle: React.RefObject<HTMLDivElement>;
+export interface App extends React.Component<AppProps, AppState> {
+  loggerOutputElement: React.RefObject<HTMLDivElement>;
 }

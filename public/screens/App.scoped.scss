@@ -1,0 +1,11 @@
+.app-container {
+  @apply container font-mono mx-auto;
+
+  .section {
+    @apply flex justify-center px-6 my-6 lg:flex-row flex-col;
+
+    .card {
+      @apply lg:w-1/2 lg:mx-4 w-full h-60 rounded-xl p-4 my-4;
+    }
+  }
+}
