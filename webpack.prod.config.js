@@ -1,30 +1,19 @@
 const path = require('path');
 const webpack = require('webpack');
+const {merge} = require('webpack-merge')
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 
-module.exports = {
+
+const commonConf = require('./webpack.common.config')
+
+module.exports = merge(commonConf, {
   mode: 'production',
-  entry: {
-    app: {
-      import: ['./public/index.tsx'],
-      filename: 'assets/[name].[contenthash].js',
-    }
-  },
   output: {
-    path: path.resolve(__dirname, './dist'),
-    clean: true,
-    publicPath: './',
-    chunkFilename: "assets/[name].bundle.js",
-    filename: "assets/[name].bundle.js"
+    clean: true
   },
-  resolve: {
-    extensions: ['.tsx', '.js', '.css', '.ts'],
-  },
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: './public/index.html',
-    }),
-  ],
+  plugins: [new MiniCssExtractPlugin()],
   module: {
     rules: [
       {
@@ -42,12 +31,14 @@ module.exports = {
         },
       },
       {
-        test: /\.s[ac]ss$/i,
-        use: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader']
-      },
-      {
-        test: /\.css$/i,
-        use: ['style-loader', 'css-loader', 'postcss-loader']
+        test: /\.(sc|sa|c)ss$/i,
+        use: [
+          MiniCssExtractPlugin.loader,
+          'css-loader',
+          'scoped-css-loader',
+          'postcss-loader',
+          'sass-loader'
+        ]
       }
     ],
   },
@@ -55,6 +46,8 @@ module.exports = {
     runtimeChunk: true,
     splitChunks: {
       chunks: "all"
-    }
+    },
+    minimize: true,
+    minimizer: [new CssMinimizerPlugin(), '...']
   }
-};
+})

@@ -43,7 +43,7 @@ class App extends React.PureComponent<AppProps, AppState> {
     return (
       <div className="app-container">
         <header className="px-12 mt-12">
-          <h1 className="text-3xl">How to prevent functional component re-render called?</h1>
+          <h1 className="text-3xl">How to prevent functional component re-render?</h1>
           <ComponentTypeSelectionSection
             selectedRenderType={selectedRenderType}
             onClick={(type: RenderType) => {

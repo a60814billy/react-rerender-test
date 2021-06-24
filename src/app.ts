@@ -61,7 +61,7 @@ class Application {
     }));
 
     /* eslint-disable */
-    const config = require('../webpack.config');
+    const config = require('../webpack.dev.config');
     const compiler = require('webpack')(config);
     const webpackDevMiddleware = require('webpack-dev-middleware');
     this.app.use(webpackDevMiddleware(compiler, {
