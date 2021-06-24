@@ -9,7 +9,7 @@ interface ClassAppState {
   counter: number
 }
 
-class Index extends React.PureComponent<ClassAppProps, ClassAppState> {
+class ClassCounterApp extends React.PureComponent<ClassAppProps, ClassAppState> {
   state = {
     counter: 0,
   };
@@ -45,4 +45,4 @@ class Index extends React.PureComponent<ClassAppProps, ClassAppState> {
   }
 }
 
-export default Index;
+export default ClassCounterApp;

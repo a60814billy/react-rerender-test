@@ -3,7 +3,7 @@ import Button from '../../components/Button';
 import { getLogger } from '../../logger';
 import SourceCode from '../../components/SourceCode/SourceCode';
 
-const Index: FC = () => {
+const FunctionalCounterApp: FC = () => {
   const [counter, dispatchCounter] = useState(10);
   getLogger().log('render App');
   return (
@@ -27,4 +27,4 @@ const Index: FC = () => {
   );
 };
 
-export default Index;
+export default FunctionalCounterApp;
